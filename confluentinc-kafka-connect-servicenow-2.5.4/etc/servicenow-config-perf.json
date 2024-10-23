@@ -1,0 +1,17 @@
+{
+    "name": "ServiceNowConnector",
+    "config": {
+      "connector.class": "io.confluent.connect.servicenow.ServiceNowSourceConnector",
+      "kafka.topic":"topic-servicenow",
+      "servicenow.url":"https://dev23125.service-now.com/",
+      "tasks.max": "1", 
+      "servicenow.table":"incident",
+        "servicenow.user":"<add usernme here>",
+        "servicenow.password":"<add password here>",
+        "servicenow.since":"2019-01-01",
+        "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "confluent.license":"",
+        "confluent.topic.bootstrap.servers":"yifei-cp-broker-0:9091"
+    }
+}

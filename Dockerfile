@@ -15,17 +15,14 @@ COPY kafka_mirror_maker_producer_config_generator.sh /opt/kafka/kafka_mirror_mak
 
 # JDBC Kafka Connector
 COPY confluentinc-kafka-connect-jdbc-10.0.1/ /opt/connectors/confluentinc-kafka-connect-jdbc-10.0.1/
-COPY db2-driver/db2jcc4.jar /opt/connectors/confluentinc-kafka-connect-jdbc-10.0.1/lib/
+COPY redshift/redshift-jdbc42-2.1.0.17.jar /opt/connectors/confluentinc-kafka-connect-jdbc-10.0.1/lib/
 COPY mysql-driver/mysql-connector-java-5.1.49.jar /opt/connectors/confluentinc-kafka-connect-jdbc-10.0.1/lib/
 
-# MongoDB Kafka Connector
-COPY mongodb-kafka-connect-mongodb-1.7.0/ /opt/connectors/mongodb-kafka-connect-mongodb-1.7.0/
+# Servicenow connector
+COPY confluentinc-kafka-connect-servicenow-2.5.4/ /opt/connectors/confluentinc-kafka-connect-servicenow-2.5.4/
 
 # S3 Kafka Connector
 COPY confluentinc-kafka-connect-s3-10.5.5/ /opt/connectors/confluentinc-kafka-connect-s3-10.5.5/
-
-# Avro Converter
-COPY confluentinc-kafka-connect-avro-converter-7.5.1/ /opt/connectors/confluentinc-kafka-connect-avro-converter-7.5.1/
 
 RUN chmod +x /opt/kafka/kafka_connect_config_generator.sh \
  && chmod +x /opt/kafka/kafka_mirror_maker_2_connector_config_generator.sh \
