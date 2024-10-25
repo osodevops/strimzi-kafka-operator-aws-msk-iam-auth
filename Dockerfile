@@ -16,15 +16,15 @@ COPY kafka_mirror_maker_producer_config_generator.sh /opt/kafka/kafka_mirror_mak
 
 RUN mkdir -p /opt/kafka/plugins
 # JDBC Kafka Connector
-COPY confluentinc-kafka-connect-jdbc-10.0.1/ /opt/plugins/confluentinc-kafka-connect-jdbc-10.0.1/
-COPY redshift/redshift-jdbc42-2.1.0.17.jar /opt/plugins/confluentinc-kafka-connect-jdbc-10.0.1/lib/
-COPY mysql-driver/mysql-connector-java-5.1.49.jar /opt/plugins/confluentinc-kafka-connect-jdbc-10.0.1/lib/
+COPY confluentinc-kafka-connect-jdbc-10.0.1 /opt/kafka/plugins/confluentinc-kafka-connect-jdbc-10.0.1
+COPY redshift/redshift-jdbc42-2.1.0.17.jar /opt/kafka/plugins/confluentinc-kafka-connect-jdbc-10.0.1/lib/
+COPY mysql-driver/mysql-connector-java-5.1.49.jar /opt/kafka/plugins/confluentinc-kafka-connect-jdbc-10.0.1/lib/
 
 # Servicenow connector
-COPY confluentinc-kafka-connect-servicenow-2.5.4/ /opt/plugins/confluentinc-kafka-connect-servicenow-2.5.4/
+COPY confluentinc-kafka-connect-servicenow-2.5.4 /opt/kafka/plugins/confluentinc-kafka-connect-servicenow-2.5.4
 
 # S3 Kafka Connector
-COPY confluentinc-kafka-connect-s3-10.5.5/ /opt/plugins/confluentinc-kafka-connect-s3-10.5.5/
+COPY confluentinc-kafka-connect-s3-10.5.5 /opt/kafka/plugins/confluentinc-kafka-connect-s3-10.5.5
 
 RUN chmod +x /opt/kafka/kafka_connect_config_generator.sh \
  && chmod +x /opt/kafka/kafka_mirror_maker_2_connector_config_generator.sh \
