@@ -26,7 +26,7 @@ COPY confluentinc-kafka-connect-servicenow-2.5.4 /opt/kafka/plugins/confluentinc
 # S3 Kafka Connector
 COPY confluentinc-kafka-connect-s3-10.5.5 /opt/kafka/plugins/confluentinc-kafka-connect-s3-10.5.5
 
-# MySQL Debezium Connector (Add this section)
+# MySQL Debezium Connector
 ARG DEBEZIUM_VERSION="3.0.7.Final"
 RUN mkdir -p /opt/kafka/plugins/debezium-connector-mysql \
     && curl -sSL -o /opt/kafka/plugins/debezium-connector-mysql/debezium-connector-mysql-${DEBEZIUM_VERSION}.jar \
