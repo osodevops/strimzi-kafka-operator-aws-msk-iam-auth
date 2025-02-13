@@ -28,11 +28,16 @@ COPY confluentinc-kafka-connect-s3-10.5.5 /opt/kafka/plugins/confluentinc-kafka-
 
 # MySQL Debezium Connector
 ARG DEBEZIUM_VERSION="3.0.7.Final"
-RUN mkdir -p /opt/kafka/plugins/debezium-connector-mysql \
-    && curl -sSL -o /opt/kafka/plugins/debezium-connector-mysql/debezium-connector-mysql-${DEBEZIUM_VERSION}.jar \
-       https://repo1.maven.org/maven2/io/debezium/debezium-connector-mysql/${DEBEZIUM_VERSION}/debezium-connector-mysql-${DEBEZIUM_VERSION}.jar
+RUN curl -sSL -o /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz \
+       https://repo1.maven.org/maven2/io/debezium/debezium-connector-mysql/${DEBEZIUM_VERSION}/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz \
+    && mkdir -p /opt/kafka/plugins/debezium-connector-mysql \
+    && tar -xzf /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz -C /opt/kafka/plugins/debezium-connector-mysql \
+    && rm -f /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz
+
 
 RUN chmod +x /opt/kafka/kafka_connect_config_generator.sh \
  && chmod +x /opt/kafka/kafka_mirror_maker_2_connector_config_generator.sh \
  && chmod +x /opt/kafka/kafka_mirror_maker_consumer_config_generator.sh \
  && chmod +x /opt/kafka/kafka_mirror_maker_producer_config_generator.sh
+
+
