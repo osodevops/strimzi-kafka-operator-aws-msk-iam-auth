@@ -35,6 +35,13 @@ RUN curl -sSL -o /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz
     && rm -f /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz
 
 
+ARG DEBEZIUM_JDBC_VERSION="3.0.7.Final"
+RUN curl -sSL -o /tmp/debezium-connector-jdbc-${DEBEZIUM_JDBC_VERSION}-plugin.tar.gz \
+       https://repo1.maven.org/maven2/io/debezium/debezium-connector-jdbc/${DEBEZIUM_JDBC_VERSION}/debezium-connector-jdbc-${DEBEZIUM_JDBC_VERSION}-plugin.tar.gz \
+    && mkdir -p /opt/kafka/plugins/debezium-connector-jdbc \
+    && tar -xzf /tmp/debezium-connector-jdbc-${DEBEZIUM_JDBC_VERSION}-plugin.tar.gz -C /opt/kafka/plugins/debezium-connector-jdbc \
+    && rm -f /tmp/debezium-connector-jdbc-${DEBEZIUM_JDBC_VERSION}-plugin.tar.gz
+
 RUN chmod +x /opt/kafka/kafka_connect_config_generator.sh \
  && chmod +x /opt/kafka/kafka_mirror_maker_2_connector_config_generator.sh \
  && chmod +x /opt/kafka/kafka_mirror_maker_consumer_config_generator.sh \
