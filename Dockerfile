@@ -35,7 +35,8 @@ RUN curl -sSL -o /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz
     && rm -f /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz
 
 
-ARG DEBEZIUM_JDBC_VERSION="3.0.7.Final"
+#ARG DEBEZIUM_JDBC_VERSION="3.0.7.Final"
+ARG DEBEZIUM_JDBC_VERSION="2.6.2.Final"
 RUN curl -sSL -o /tmp/debezium-connector-jdbc-${DEBEZIUM_JDBC_VERSION}-plugin.tar.gz \
        https://repo1.maven.org/maven2/io/debezium/debezium-connector-jdbc/${DEBEZIUM_JDBC_VERSION}/debezium-connector-jdbc-${DEBEZIUM_JDBC_VERSION}-plugin.tar.gz \
     && mkdir -p /opt/kafka/plugins/debezium-connector-jdbc \
