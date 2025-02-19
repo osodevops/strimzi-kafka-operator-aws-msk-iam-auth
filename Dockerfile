@@ -3,7 +3,7 @@ ARG STRIMZI_KAFKA_TAG="0.38.0-kafka-3.6.0"
 FROM quay.io/strimzi/kafka:${STRIMZI_KAFKA_TAG}
 
 ARG AWS_MSK_IAM_AUTH_VERSION="2.2.0"
-ENV CLASSPATH=/opt/kafka/libs/aws-msk-iam-auth-${AWS_MSK_IAM_AUTH_VERSION}-all.jar
+ENV CLASSPATH=/opt/kafka/libs/*
 
 USER root
 
