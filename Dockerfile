@@ -43,6 +43,9 @@ RUN curl -sSL -o /tmp/debezium-connector-jdbc-${DEBEZIUM_JDBC_VERSION}-plugin.ta
     && tar -xzf /tmp/debezium-connector-jdbc-${DEBEZIUM_JDBC_VERSION}-plugin.tar.gz -C /opt/kafka/plugins/debezium-connector-jdbc \
     && rm -f /tmp/debezium-connector-jdbc-${DEBEZIUM_JDBC_VERSION}-plugin.tar.gz
 
+RUN mkdir  -p /opt/kafka/plugins/service-now-connector
+COPY servicenow-source-connector/servicenow-connector-1.0-SNAPSHOT-all.jar /opt/kafka/plugins/service-now-connector
+
 RUN chmod +x /opt/kafka/kafka_connect_config_generator.sh \
  && chmod +x /opt/kafka/kafka_mirror_maker_2_connector_config_generator.sh \
  && chmod +x /opt/kafka/kafka_mirror_maker_consumer_config_generator.sh \
