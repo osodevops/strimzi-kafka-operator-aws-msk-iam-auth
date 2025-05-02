@@ -24,7 +24,7 @@ COPY mysql-driver/mysql-connector-java-5.1.49.jar /opt/kafka/plugins/confluentin
 COPY confluentinc-kafka-connect-servicenow-2.5.4 /opt/kafka/plugins/confluentinc-kafka-connect-servicenow-2.5.4
 
 # S3 Kafka Connector
-COPY confluentinc-kafka-connect-s3-10.5.5 /opt/kafka/plugins/confluentinc-kafka-connect-s3-10.5.5
+COPY confluentinc-kafka-connect-s3-10.6.5 /opt/kafka/plugins/confluentinc-kafka-connect-s3-10.6.5
 
 # MySQL Debezium Connector
 ARG DEBEZIUM_VERSION="3.0.7.Final"
