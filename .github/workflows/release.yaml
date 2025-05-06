@@ -48,5 +48,5 @@ jobs:
             STRIMZI_KAFKA_VERSION=${{ matrix.strimzi_kafka_version }}
             AWS_MSK_IAM_AUTH_VERSION=${{ matrix.aws_msk_iam_auth_version }}
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/oso-strimzi-kafka-operator-iam-auth:0.0.3
+            ${{ secrets.DOCKER_USERNAME }}/oso-strimzi-kafka-operator-iam-auth:0.0.4
 #            ${{ secrets.DOCKER_USERNAME }}/oso-strimzi-kafka-operator-iam-auth:${{ matrix.strimzi_kafka_version }}-aws-${{ matrix.aws_msk_iam_auth_version }}
