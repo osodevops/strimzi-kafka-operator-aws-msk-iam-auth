@@ -4,7 +4,6 @@ on:
   push: 
     branches:
       - main
-      - PLAT-442
   pull_request:
 jobs:  
   docker_push:
