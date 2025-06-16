@@ -34,6 +34,13 @@ RUN curl -sSL -o /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz
     && tar -xzf /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz -C /opt/kafka/plugins/debezium-connector-mysql \
     && rm -f /tmp/debezium-connector-mysql-${DEBEZIUM_VERSION}-plugin.tar.gz
 
+# Postgres Debezium Connector
+ARG DEBEZIUM_PG_VERSION="3.1.2.Final"
+RUN curl -sSL -o /tmp/debezium-connector-postgres-${DEBEZIUM_PG_VERSION}-plugin.tar.gz \
+       https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/${DEBEZIUM_PG_VERSION}/debezium-connector-postgres-${DEBEZIUM_PG_VERSION}-plugin.tar.gz \
+    && mkdir -p /opt/kafka/plugins/debezium-connector-postgres \
+    && tar -xzf /tmp/debezium-connector-postgres-${DEBEZIUM_PG_VERSION}-plugin.tar.gz -C /opt/kafka/plugins/debezium-connector-postgres \
+    && rm -f /tmp/debezium-connector-postgres-${DEBEZIUM_PG_VERSION}-plugin.tar.gz
 
 #ARG DEBEZIUM_JDBC_VERSION="3.0.7.Final"
 ARG DEBEZIUM_JDBC_VERSION="2.6.2.Final"
